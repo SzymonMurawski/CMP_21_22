@@ -27,11 +27,20 @@ namespace Mazes
             foreach (Cell cell in EveryCell()) {
                 int x = cell.X;
                 int y = cell.Y;
-                cell.North = y - 1 < 0 ? null : CellsGrid[x, y - 1];
-                cell.South = y + 1 >= Height ? null : CellsGrid[x, y + 1];
-                cell.West = x - 1 < 0 ? null : CellsGrid[x - 1, y];
-                cell.East = x + 1 >= Width ? null : CellsGrid[x + 1, y];
+                cell.North = GetCellAt(x, y - 1);
+                cell.South = GetCellAt(x, y + 1);
+                cell.West = GetCellAt(x - 1, y);
+                cell.East = GetCellAt(x + 1, y);
             }
+        }
+
+        public Cell GetCellAt(int x, int y)
+        {
+            if(x < 0 || x >= Width || y < 0 || y >= Height)
+            {
+                return null;
+            }
+            return CellsGrid[x, y];
         }
 
         public void Print()
