@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29403.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mazes", "Mazes\Mazes.csproj", "{EB5E6881-9029-4A46-A8B4-B56031CD100E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB5E6881-9029-4A46-A8B4-B56031CD100E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB5E6881-9029-4A46-A8B4-B56031CD100E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB5E6881-9029-4A46-A8B4-B56031CD100E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB5E6881-9029-4A46-A8B4-B56031CD100E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0DEC879-4021-49D9-B06E-DF30CC86772F}
+	EndGlobalSection
+EndGlobal
