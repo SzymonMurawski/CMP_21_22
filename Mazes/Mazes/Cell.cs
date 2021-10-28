@@ -26,5 +26,17 @@ namespace Mazes
             Links[linkedCell] = true;
             linkedCell.Links[this] = true;
         }
+        public bool Linked(Cell linkedCell)
+        {
+            if (linkedCell == null)
+            {
+                return false;
+            }
+            if (Links.ContainsKey(linkedCell))
+            {
+                return Links[linkedCell];
+            }
+            return false;
+        }
     }
 }
