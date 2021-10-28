@@ -16,7 +16,13 @@ namespace Mazes
             Height = height;
 
             CellsGrid = new Cell[Width, Height];
-            //TODO initialize every cell in CellsGrid
+            for(int x = 0; x < Width; x++)
+            {
+                for(int y = 0; y < Height; y++)
+                {
+                    CellsGrid[x, y] = new Cell(x, y);
+                }
+            }
         }
     }
 }
