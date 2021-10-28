@@ -8,6 +8,8 @@ namespace Mazes
         {
             Console.WriteLine("Hello World!");
             Grid grid = new Grid(10, 10);
+            BinaryTreeMaze.Generate(grid);
+            grid.Print();
         }
     }
 }

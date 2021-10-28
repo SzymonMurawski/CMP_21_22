@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Mazes
@@ -33,6 +34,29 @@ namespace Mazes
                     CellsGrid[x, y].East = x + 1 >= Width ? null : CellsGrid[x + 1, y];
                 }
             }
+        }
+
+        public void Print()
+        {
+            string output = "+" + string.Concat(Enumerable.Repeat("---+", Height)) + "\n";
+            
+            for (int y = 0; y < Height; y++)
+            {
+                string top = "|";
+                string bottom = "+";
+                for (int x = 0; x < Width; x++)
+                {
+                    Cell cell = CellsGrid[x, y];
+                    string body = "   ";
+                    string east_boundary = cell.Linked(cell.East) ? " " : "|";
+                    top = top + body + east_boundary;
+                    string south_boundary = cell.Linked(cell.South) ? "   " : "---";
+                    bottom = bottom + south_boundary + "+";
+                }
+                output += top + "\n";
+                output += bottom + "\n";
+            }
+            Console.WriteLine(output);
         }
     }
 }
