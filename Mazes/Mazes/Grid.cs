@@ -27,10 +27,10 @@ namespace Mazes
             {
                 for (int y = 0; y < Height; y++)
                 {
-                    CellsGrid[x, y].North = CellsGrid[x, y - 1];
-                    CellsGrid[x, y].South = CellsGrid[x, y + 1];
-                    CellsGrid[x, y].West = CellsGrid[x - 1, y];
-                    CellsGrid[x, y].East = CellsGrid[x + 1, y];
+                    CellsGrid[x, y].North = y - 1 < 0 ? null : CellsGrid[x, y - 1];
+                    CellsGrid[x, y].South = y + 1 >= Height ? null : CellsGrid[x, y + 1];
+                    CellsGrid[x, y].West = x - 1 < 0 ? null : CellsGrid[x - 1, y];
+                    CellsGrid[x, y].East = x + 1 >= Width ? null : CellsGrid[x + 1, y];
                 }
             }
         }
