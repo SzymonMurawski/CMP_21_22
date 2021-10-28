@@ -58,5 +58,16 @@ namespace Mazes
             }
             Console.WriteLine(output);
         }
+
+        public IEnumerable<Cell> EveryCell()
+        {
+            for (int x = 0; x < Width; x++)
+            {
+                for (int y = 0; y < Height; y++)
+                {
+                    yield return CellsGrid[x, y];
+                }
+            }
+        }
     }
 }
