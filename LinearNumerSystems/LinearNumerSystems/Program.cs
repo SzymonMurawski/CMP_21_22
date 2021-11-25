@@ -7,7 +7,11 @@ namespace LinearNumerSystems
         static void Main(string[] args)
         {
             double[,] augmentedMatrix = ReadEquations();
+            PrintEquations(augmentedMatrix);
+        }
 
+        private static void PrintEquations(double[,] augmentedMatrix)
+        {
             Console.WriteLine("Your equations:");
             Console.WriteLine(augmentedMatrix);
         }
