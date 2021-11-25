@@ -9,16 +9,16 @@ namespace LinearNumerSystems
             double[,] augmentedMatrix = ReadEquations();
             PrintEquations(augmentedMatrix);
             //TODO: extract into method
-            //TODO: Name variables better
-            int N = 2;
-            for (int k=0; k<N; k++)
+            int NumberOfEquations = 2;
+            for (int diagonalVariableIndex = 0; diagonalVariableIndex < NumberOfEquations; diagonalVariableIndex++)
             {
-                for(int i = k+1; i < N; i++)
+                for(int currentEquationIndex = diagonalVariableIndex+1; currentEquationIndex < NumberOfEquations; currentEquationIndex++)
                 {
-                    double factor = augmentedMatrix[k, i] / augmentedMatrix[k, k];
-                    for (int j=k; j < N+1; j++)
+                    double factor = augmentedMatrix[diagonalVariableIndex, currentEquationIndex] / augmentedMatrix[diagonalVariableIndex, diagonalVariableIndex];
+                    // NumberOfEquations+1, because we are also changing the result
+                    for (int currentVariableIndex=diagonalVariableIndex; currentVariableIndex < NumberOfEquations+1; currentVariableIndex++)
                     {
-                        augmentedMatrix[j, i] -= factor * augmentedMatrix[j, k];
+                        augmentedMatrix[currentVariableIndex, currentEquationIndex] -= factor * augmentedMatrix[currentVariableIndex, diagonalVariableIndex];
                     }
                 }
             }
