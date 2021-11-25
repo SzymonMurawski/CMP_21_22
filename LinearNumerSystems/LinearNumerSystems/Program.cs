@@ -14,7 +14,8 @@ namespace LinearNumerSystems
         {
             //TODO: Implement better printing algorithm
             Console.WriteLine("Your equations:");
-            Console.WriteLine(augmentedMatrix);
+            Console.WriteLine($"Eq #1: {augmentedMatrix[0,0]}*x1 + {augmentedMatrix[1, 0]}*x2 = {augmentedMatrix[2, 0]}");
+            Console.WriteLine($"Eq #2: {augmentedMatrix[0, 1]}*x1 + {augmentedMatrix[1, 1]}*x2 = {augmentedMatrix[2, 1]}");
         }
 
         private static double[,] ReadEquations()
