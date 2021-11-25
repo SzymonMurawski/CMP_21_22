@@ -8,6 +8,19 @@ namespace LinearNumerSystems
         {
             double[,] augmentedMatrix = ReadEquations();
             PrintEquations(augmentedMatrix);
+            int N = 2;
+            for (int k=0; k<N; k++)
+            {
+                for(int i = k+1; i < N; i++)
+                {
+                    double factor = augmentedMatrix[k, i] / augmentedMatrix[k, k];
+                    for (int j=k; j < N+1; j++)
+                    {
+                        augmentedMatrix[j, i] -= factor * augmentedMatrix[j, k];
+                    }
+                }
+            }
+            PrintEquations(augmentedMatrix);
         }
 
         private static void PrintEquations(double[,] augmentedMatrix)
