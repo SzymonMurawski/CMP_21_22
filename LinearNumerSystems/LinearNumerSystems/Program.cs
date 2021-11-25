@@ -8,6 +8,8 @@ namespace LinearNumerSystems
         {
             double[,] augmentedMatrix = ReadEquations();
             PrintEquations(augmentedMatrix);
+            //TODO: extract into method
+            //TODO: Name variables better
             int N = 2;
             for (int k=0; k<N; k++)
             {
