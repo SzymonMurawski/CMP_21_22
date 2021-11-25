@@ -8,21 +8,37 @@ namespace LinearNumerSystems
         {
             double[,] augmentedMatrix = ReadEquations();
             PrintEquations(augmentedMatrix);
+            ForwardElimination(augmentedMatrix);
+            double[] results = BacktrackSubstitution(augmentedMatrix);
+            PrintResults(results);
+        }
+
+        private static void PrintResults(double[] results)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static double[] BacktrackSubstitution(double[,] augmentedMatrix)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void ForwardElimination(double[,] augmentedMatrix)
+        {
             //TODO: extract into method
             int NumberOfEquations = 2;
             for (int diagonalVariableIndex = 0; diagonalVariableIndex < NumberOfEquations; diagonalVariableIndex++)
             {
-                for(int currentEquationIndex = diagonalVariableIndex+1; currentEquationIndex < NumberOfEquations; currentEquationIndex++)
+                for (int currentEquationIndex = diagonalVariableIndex + 1; currentEquationIndex < NumberOfEquations; currentEquationIndex++)
                 {
                     double factor = augmentedMatrix[diagonalVariableIndex, currentEquationIndex] / augmentedMatrix[diagonalVariableIndex, diagonalVariableIndex];
                     // NumberOfEquations+1, because we are also changing the result
-                    for (int currentVariableIndex=diagonalVariableIndex; currentVariableIndex < NumberOfEquations+1; currentVariableIndex++)
+                    for (int currentVariableIndex = diagonalVariableIndex; currentVariableIndex < NumberOfEquations + 1; currentVariableIndex++)
                     {
                         augmentedMatrix[currentVariableIndex, currentEquationIndex] -= factor * augmentedMatrix[currentVariableIndex, diagonalVariableIndex];
                     }
                 }
             }
-            PrintEquations(augmentedMatrix);
         }
 
         private static void PrintEquations(double[,] augmentedMatrix)
