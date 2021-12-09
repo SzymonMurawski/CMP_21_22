@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LinearNumerSystems
 {
-    class LinearSystem
+    public class LinearSystem
     {
         public int NumberOfEquations { get; set; }
         public double[,] AugmentedMatrix { get; set; }
