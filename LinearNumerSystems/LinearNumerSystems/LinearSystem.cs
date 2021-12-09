@@ -47,13 +47,13 @@ namespace LinearNumerSystems
                 }
             }
         }
-        private double[] BacktrackSubstitution()
+        public double[] BacktrackSubstitution()
         {
             //TODO: Implement this function. It should perform the backtrack substitution on the augmented matrix and return the total result - variables and their values
             throw new NotImplementedException();
         }
 
-        private string PrintResults()
+        public string PrintResults()
         {
             // TODO implement this function. It should print to the user the results in a nice looking way, for example something like:
             // x1 = 123
