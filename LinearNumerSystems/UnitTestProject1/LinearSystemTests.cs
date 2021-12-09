@@ -4,14 +4,14 @@ using LinearNumerSystems;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class UnitTest1
+    public class LinearSystemTests
     {
         [TestMethod]
-        public void TestAddEquation()
+        public void TestForwardElimination()
         {
             LinearSystem ls = new LinearSystem(2);
-            ls.AddEquation("2 3 4", 0);
-            Assert.AreEqual(ls.AugmentedMatrix[0, 0], 2);
+            ls.ForwardElimination();
+            
         }
     }
 }
