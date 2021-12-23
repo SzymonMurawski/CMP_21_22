@@ -4,19 +4,14 @@ using System.Text;
 
 namespace NumericalIntegration
 {
-    public class PolynomialFunction : IFunction
+    public class RPNFunction : IFunction
     {
-        private double[] Coefficients;
-        public PolynomialFunction(string coefficientsLine)
+        public RPNFunction(string infixNotation)
         {
             // coefficentsLine -> Coeffiecient
             throw new NotImplementedException();
         }
         public double GetValueAtX(double x)
-        {
-            throw new NotImplementedException();
-        }
-        public override string ToString()
         {
             throw new NotImplementedException();
         }

@@ -15,7 +15,7 @@ namespace NumericalIntegration
         {
             N = n;
         }
-        public double GetIntegral(double a, double b, PolynomialFunction polynomialFunction)
+        public double GetIntegral(double a, double b, IFunction function)
         {
             throw new NotImplementedException();
         }
