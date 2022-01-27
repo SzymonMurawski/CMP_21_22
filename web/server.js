@@ -4,6 +4,17 @@ var url = require('url');
 var path = require('path');
 var fs = require('fs');
 const express = require('express');
+const mongo = require('mongodb');
+
+var mongoClient = mongo.MongoClient;
+var mongoUrl = "mongodb://localhost:27017";
+
+mongoClient.connect(mongoUrl, function(err, db) {
+  if (err) throw err;
+  console.log("Connected to the database");
+  db.close();
+});
+
 
 const app = express();
 app.use(express.static('static'));
@@ -15,24 +26,32 @@ app.get('/', function(req, res){
 
 app.get('/todoData', function(req, res){
     console.log('User asked for todo data');
-    fs.readFile('data/data.json', function (err, file) {
-        res.json(JSON.parse(file));
+    mongoClient.connect(mongoUrl, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("tododb2");
+        dbo.collection("todos").find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.json(result);
+        });
     });
 });
 
 app.post('/todoData', function(req, res){
     console.log('sending new todo data');
-    fs.readFile('data/data.json', function (err, file) {
-        let body = req.body;
-        let todos = JSON.parse(file);
-        todos.push({"what" : body.fwhat});
-        fs.writeFile(path.join(__dirname, '/data/data.json'), JSON.stringify(todos, null, 4), function(err) {
-            if(err) {
-                return console.log(err);
-            }
-            console.log("The file was saved!");
+    
+    let body = req.body;
+    let newTodo = {"what" : body.fwhat};
+    mongoClient.connect(mongoUrl, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("tododb2");
+        dbo.collection("todos").insertOne(newTodo, function(err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+            db.close();
         });
     });
+
     res.redirect('/');
 });
 
