@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded",
     function(){
-
+        fetch('/todoData')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            data.forEach(element => addTodo(element.what));
+        })
 
         let list = document.getElementById("todoList");
         list.addEventListener(
