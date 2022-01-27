@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <h2>My To Do List</h2>
+            <form action="/todoData" method="POST">
+                <input type="text" id="fwhat" name="fwhat" placeholder="What to do?"/>
+                <input type="button" value="Add" id="submitAdd" class="addBtn" onClick="addTodo(document.getElementById('fwhat').value)"/>
+            </form>    
+        </div>
+        <ul id="todoList">
+            <li>Hit the gym</li>
+            <li class="checked">Pay bills</li>
+            <li>Meet with a friend</li>
+            <li>Buy eggs</li>
+            <li>Read a book</li>
+            <li>Organize office</li>
+        </ul>
+    </body>
+</html>
